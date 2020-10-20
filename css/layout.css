@@ -1,0 +1,21 @@
+* {
+   box-sizing: border-box;
+}
+
+body {
+   background-color: #F1BF98;
+}
+
+.grid {
+   display: grid;
+}
+
+.container {
+   grid-template-columns: repeat(12, 1fr);
+   min-height: 80vh;
+   background-color: ;
+}
+
+.main-content {
+   grid-column: 1 / 13;
+}

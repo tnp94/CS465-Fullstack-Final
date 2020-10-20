@@ -1,0 +1,21 @@
+.grid {
+   display: grid;
+}
+
+.nav-grid {
+   grid-template-columns: repeat(3, 1fr);
+   padding: 0;
+}
+
+.nav-item {
+   list-style-type: none;
+   background-color: #add8e6;
+   border: 1px solid black;
+   text-align: center;
+}
+
+.nav-item a {
+   display: block;
+   text-decoration: none;
+   padding: 5px;
+}
