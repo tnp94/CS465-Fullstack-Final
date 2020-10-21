@@ -17,7 +17,6 @@ body {
 .container {
    grid-template-columns: repeat(12, 1fr);
    min-height: 80vh;
-   background-color: ;
 }
 
 .main-content {
