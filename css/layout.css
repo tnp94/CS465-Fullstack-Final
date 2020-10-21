@@ -1,3 +1,4 @@
+/* CSS for the layout of content */
 * {
    box-sizing: border-box;
 }
@@ -8,17 +9,20 @@ body {
 
 .grid {
    display: grid;
+   gap: 5px;
 }
 
-/* .container {
-   grid-template-columns: repeat(3, 1fr);
-} */
-
+/* This sets up the grid with 12 columns.
+   This makes dividing the page into halves, thirds,
+   or quarters easy */
 .container {
    grid-template-columns: repeat(12, 1fr);
    min-height: 80vh;
 }
 
+/* This is the layout for a one column page */
 .main-content {
    grid-column: 1 / 13;
+   border: 1px solid black;
+   padding: 5px;
 }

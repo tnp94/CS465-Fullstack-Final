@@ -1,8 +1,4 @@
-.grid {
-   display: grid;
-   gap: 5px;
-}
-
+/* CSS for the nav-bar across all pages */
 .nav-grid {
    grid-template-columns: 1fr;
 }
