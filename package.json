@@ -1,0 +1,22 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "description": "Final project for CS 465P",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfer2/Hueco.git"
+  },
+  "author": "Thomas Pollard and Jacob Ferretti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jfer2/Hueco/issues"
+  },
+  "homepage": "https://github.com/jfer2/Hueco#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
