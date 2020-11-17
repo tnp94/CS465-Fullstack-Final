@@ -17,12 +17,52 @@ body {
    or quarters easy */
 .container {
    grid-template-columns: repeat(12, 1fr);
-   min-height: 80vh;
+   /* grid-template-rows: 1fr 9fr; */
+   /* min-height: 80vh; */
 }
 
 /* This is the layout for a one column page */
-.main-content {
+.full-content {
    grid-column: 1 / 13;
    border: 1px solid black;
    padding: 5px;
+}
+
+.header {
+   grid-column: 1 / 13;
+   border: 1px solid black;
+   padding: 5px;
+}
+
+.header h1 {
+   margin: 0px;
+}
+
+
+@media (min-width: 415px) {
+   .main-content {
+      grid-column: 1 / 9;
+      border: 1px solid black;
+      padding: 5px;
+   }
+
+   .sidebar{
+      grid-column: 9 / 13;
+      border: 1px solid black;
+      padding: 5px;
+   }
+}
+
+@media (max-width: 414px) {
+   .main-content {
+      grid-column: 1 / 13;
+      border: 1px solid black;
+      padding: 5px;
+   }
+
+   .sidebar{
+      grid-column: 1 / 13;
+      border: 1px solid black;
+      padding: 5px;
+   }
 }
