@@ -1,0 +1,66 @@
+/* CSS for the nav-bar across all pages */
+
+.nav-grid {
+   padding: 0px;
+   font-size: 1.5em;
+}
+
+@media (max-width: 415px) {
+   nav .nav-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+   }
+}
+
+
+/* CSS for screens larger than mobile */
+@media (min-width: 415px) {
+   .nav-grid {
+      grid-template-columns: repeat(3, 1fr);
+   }
+
+   .nav-item a {
+      padding: 5px;
+   }
+}
+
+.nav-item {
+   list-style-type: none;
+   background-color: #add8e6;
+   border: 1px solid black;
+   text-align: center;
+   border-radius: 3px;
+}
+
+/* If hovering or clicking the current navlink, darken the item */
+.nav-item[class~="current"]:hover a{
+   background-color: rgba(0, 0, 0, 0.15);
+}
+
+.nav-item[class~="current"]:active a{
+   background-color: rgba(0, 0, 0, 0.3);
+   color: white;
+}
+
+/* If hovering or clicking a non-current navlink, lighten the item */
+.nav-item a:hover {
+   background-color: rgba(255, 255, 255, 0.15);
+}
+
+.nav-item a:active {
+   background-color: rgba(255, 255, 255, 0.3);
+   color: black;
+}
+
+.nav-item a {
+   display: block;
+   text-decoration: none;
+}
+
+.current {
+   background-color: #444;
+}
+
+.current a {
+   color: white;
+}
