@@ -1,8 +1,8 @@
 doctype html
 head
-  link(rel='stylesheet' href='../css/style.css')
-  link(rel='stylesheet' href='../css/nav-layout.css')
-  link(rel='stylesheet' href='../css/layout.css')
+  link(rel='stylesheet' href='css/style.css')
+  link(rel='stylesheet' href='css/nav-layout.css')
+  link(rel='stylesheet' href='css/layout.css')
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Document
@@ -15,5 +15,4 @@ nav
     li.nav-item.grid-item.item3
       a(href='map.html') Map View
 .grid.container
-  .grid-item.main-content
-    h1 Route: !{route}, Problem: !{problem}
+  .grid-item.main-content !{routesList}

@@ -14,10 +14,17 @@ app.get('/', (req, res) => {
 
 });
 
+app.get('/routes', (req, res) => {
+   // Fetch the available routes at location and link to each problem
+   let routes = []; // Each route should link to the route page
+   res.render('routesList', {
+      routesList: `${routes}`
+   });
+});
 
 app.get('/:route?', (req, res) => {
    // Fetch the available problems at the route location and link to each problem
-   let problems = [];
+   let problems = []; // Each problem should link to the problem page
    res.render('route', {
       route: `${req.params.route}`,
       problemList: problems
