@@ -22,7 +22,7 @@ fetch(url)
     })
     .then(data => {
         routes = data;
-        console.log(routes);
+      //   console.log(routes);
     })
     .catch(error => console.log(error))
 
@@ -60,7 +60,7 @@ app.get('/locations', (req, res) => {
    });
    for (let location in locations)
    {
-      locationsArr.push(`<li><a href='${location}'>${location}</a></li>`);
+      locationsArr.push(`<li><a href='${location}'>${location}</a>: ${locations[location]} routes found</li>`);
    }
    //routesArr[0] = routes.routes[0].name;
    res.render('locationList', {
