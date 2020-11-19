@@ -7,8 +7,24 @@ app.set('view engine', 'pug');
 
 app.use(express.static('public'));
 // const url; // TODO set API url here
-const fetch = require('node-fetch');
 
+// Fetch variables
+const fetch = require('node-fetch');
+var minGrade = "V3";
+var maxGrade = "V3";
+const key = "200976075-5e0eef9985cd16b8e7a3f68105cd6b29";
+var maxResults = 5;
+
+let routes;
+fetch(`https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`)
+    .then (response => {
+        return response.json();
+    })
+    .then(data => {
+        routes = data;
+        console.log(routes);
+    })
+    .catch(error => console.log(error))
 
 app.get('/', (req, res) => {
 
@@ -16,9 +32,12 @@ app.get('/', (req, res) => {
 
 app.get('/routes', (req, res) => {
    // Fetch the available routes at location and link to each problem
-   let routes = []; // Each route should link to the route page
+   let routesArr = []; // Each route should link to the route page
+
+   // Simple test case, tested and works (11/18/2020)
+   routesArr[0] = routes.routes[0].name;
    res.render('routesList', {
-      routesList: `${routes}`
+      routesList: `${routesArr}`
    });
 });
 
