@@ -9,10 +9,10 @@ app.use(express.static('public'));
 
 // Fetch variables
 const fetch = require('node-fetch');
-var minGrade = "V3";
-var maxGrade = "V3";
+var minGrade = "V0";
+var maxGrade = "V0";
 const key = "200976075-5e0eef9985cd16b8e7a3f68105cd6b29";
-var maxResults = 5;
+var maxResults = 1;
 const url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`; // TODO set API url here
 
 let routes;
@@ -22,7 +22,7 @@ fetch(url)
     })
     .then(data => {
         routes = data;
-      //   console.log(routes);
+        console.log(routes);
     })
     .catch(error => console.log(error))
 
@@ -62,7 +62,6 @@ app.get('/locations', (req, res) => {
    {
       locationsArr.push(`<li><a href='${location}'>${location}</a>: ${locations[location]} routes found</li>`);
    }
-   //routesArr[0] = routes.routes[0].name;
    res.render('locationList', {
       locationsList: `${locationsArr.join(``)}`
    });
@@ -79,12 +78,23 @@ app.get('/:location?', (req, res) => {
 
 app.get('/:location/:problem', (req, res) => {
    // Fetch all information for the problem and display the information with the route pug template
+
    res.render('problem', {
       location: `<a href='/${req.params.location}'>${req.params.location}</a>`,
       problem: `${req.params.problem}`
       // Put other relevant information here
    });
 });
+
+function getGrade() {
+   var grade = document.getElementById("grade");
+   var strGrade = grade.nodeValue;
+   console.log(strGrade);
+}
+
+
+
+
 
 app.listen(port, () => {
    console.log(`Server running at http://localhost:${port}`);
