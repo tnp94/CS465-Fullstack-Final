@@ -2,6 +2,13 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 
+const parser = require('body-parser');
+
+app.use(parser.urlencoded({
+    'extended': false,
+    'limit': 1024
+}));
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
 
@@ -58,6 +65,11 @@ function getGrade() {
    var strGrade = grade.nodeValue;
    console.log(strGrade);
 }
+
+app.post('/submit', (req, res) => {
+   const {grade} = req.body;
+   res.writeHead(302, {'Location': `/locations`})
+});
 
 
 
