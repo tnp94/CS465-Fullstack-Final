@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <link rel="stylesheet" href="css/style.css" />
-   <link rel="stylesheet" href="css/nav-layout.css" />
-   <link rel="stylesheet" href="css/layout.css" />
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-</head>
-<body>
-   <nav>
+  <head>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/nav-layout.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
       <ul class="grid nav-grid">
-         <li class="nav-item grid-item item1 current"><a href="index.html">Home</a></li>
-         <li class="nav-item grid-item item2"><a href="locations.html">Locations List</a></li>
-         <li class="nav-item grid-item item3"><a href="map.html">Map View</a></li>
+        <li class="nav-item grid-item item1 current">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="nav-item grid-item item2">
+          <a href="locations.html">Locations List</a>
+        </li>
+        <li class="nav-item grid-item item3">
+          <a href="map.html">Map View</a>
+        </li>
       </ul>
-   </nav>
-   <div class="grid container">
+    </nav>
+    <div class="grid container">
       <div class="grid-item full-content">
-         <h1>Welcome to the Hueco Tanks web app</h1>
-         <p>This website has information on various bouldering problems in the Hueco Tanks, North Mountain area</p>
+        <h1>Welcome to the Hueco Tanks web app</h1>
+        <p>
+          This website has information on various bouldering problems in the
+          Hueco Tanks, North Mountain area
+        </p>
+
+        <p>View boulder routes by V-grade:</p>
+        <form id="grade" name="grade" action="">
+          <label for="grade">V-grade:</label>
+          <select name="grade" id="grade">
+            <option value="V0">V0</option>
+            <option value="V1">V1</option>
+            <option value="V2">V2</option>
+            <option value="V3">V3</option>
+            <option value="V4">V4</option>
+            <option value="V5">V5</option>
+            <option value="V6">V6</option>
+            <option value="V7">V7</option>
+            <option value="V8">V8</option>
+            <option value="V9">V9</option>
+            <option value="V10">V10</option>
+            <option value="V11">V11</option>
+            <option value="V12">V12</option>
+          </select>
+          <br /><br />
+          <input type="submit" value="Submit" />
+        </form>
       </div>
-   </div>
-   
-</body>
+    </div>
+  </body>
 </html>
