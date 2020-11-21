@@ -10,10 +10,10 @@ app.use(express.static('public'));
 // Fetch variables
 const fetch = require('node-fetch');
 var minGrade = "V0";
-var maxGrade = "V0";
+var maxGrade = "V10";
 const key = "200976075-5e0eef9985cd16b8e7a3f68105cd6b29";
-var maxResults = 500;
-const url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`; // TODO set API url here
+const maxResults = 500;
+//const url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`; // TODO set API url here
 
 async function fetchData(args) {
    const {minGrade, maxGrade} = args;
