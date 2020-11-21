@@ -12,60 +12,26 @@ const fetch = require('node-fetch');
 var minGrade = "V3";
 var maxGrade = "V3";
 const key = "200976075-5e0eef9985cd16b8e7a3f68105cd6b29";
-var maxResults = 5;
+var maxResults = 500;
 const url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`; // TODO set API url here
 
-let routes;
-fetch(url)
-    .then (response => {
-        return response.json();
-    })
-    .then(data => {
-        routes = data;
-      //   console.log(routes);
-    })
-    .catch(error => console.log(error))
+async function fetchData(args) {
+   const {minGrade, maxGrade} = args;
+   let url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`; // TODO set API url here
+   let response = await fetch(url);
+   let data = await response.json();
+   return data;
+}
+
 
 app.get('/', (req, res) => {
 
 });
 
-app.get('/locations', (req, res) => {
-   // Fetch the available routes at location and link to each problem
-   let locationsArr= []; // Each route should link to the route page
-   let locations = {};
-
-   // Simple test case, tested and works (11/18/2020)
-   routes.routes.forEach(route => {
-      let area;
-      const {location} = route;
-      if (location.length >= 4) // Find the location, 4th from the top hierarchy if it exists
-      {
-         area = location[3];
-      }
-      else // If the location doesn't have a hierarchy depth of 4, use the last available
-      {
-         area = location[location.length-1];
-      }
-
-      if (area in locations)
-      {
-         locations[area] += 1;
-
-      }
-      else
-      {
-         locations[area] = 1;
-      }
-   });
-   for (let location in locations)
-   {
-      locationsArr.push(`<li><a href='${location}'>${location}</a>: ${locations[location]} routes found</li>`);
-   }
-   //routesArr[0] = routes.routes[0].name;
-   res.render('locationList', {
-      locationsList: `${locationsArr.join(``)}`
-   });
+app.get('/data', async (req, res) => {
+   // TODO: get min and max grade from a form from the user as arguments
+   let data = await fetchData(("V3", "V3"));
+   res.json(data);
 });
 
 app.get('/:location?', (req, res) => {
@@ -85,6 +51,8 @@ app.get('/:location/:problem', (req, res) => {
       // Put other relevant information here
    });
 });
+
+
 
 app.listen(port, () => {
    console.log(`Server running at http://localhost:${port}`);
