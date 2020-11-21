@@ -48,9 +48,10 @@ const url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.
 
          function updateSidebar(location) {
             let sidebar = document.querySelector('.sidebar .routes');
-            let output = Object.keys(fullData.locations[location].routes).map((route) => 
-               <li id={route} key={route}><a href={route}>{route}</a></li>
-            );
+            let output = Object.keys(fullData.locations[location].routes).map((route) => {
+               let path = `${location}/${route}`;
+               return <li id={route} key={route}><a href={path}>{route}</a></li>
+            });
 
             ReactDOM.render(output, sidebar);
          }
