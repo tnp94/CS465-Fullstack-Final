@@ -30,13 +30,22 @@ async function fetchData(args) {
    return data;
 }
 
+var gradeSelection;
+
 
 app.get('/', (req, res) => {
+   gradeSelection = req.body.grade;
+   console.log(gradeSelection);
+   res.end();
 
 });
 
-app.post('/example', (req, res) => {
-   res.send(`Grade is ${req.body.grade}`);
+app.post('/', (req, res) => {
+   //res.send(`Grade is ${req.body.grade}`);
+   gradeSelection = req.body.grade;
+   console.log(gradeSelection);
+   res.writeHead(302, {'Location': `/`})
+   res.end();
 });
 
 app.get('/data', async (req, res) => {
