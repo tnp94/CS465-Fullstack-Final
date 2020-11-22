@@ -35,6 +35,10 @@ app.get('/', (req, res) => {
 
 });
 
+app.post('/example', (req, res) => {
+   res.send(`Grade is ${req.body.grade}`);
+});
+
 app.get('/data', async (req, res) => {
    // TODO: get min and max grade from a form from the user as arguments
    let data = await fetchData(("V3", "V3"));
@@ -70,10 +74,6 @@ app.post('/submit', (req, res) => {
    const {grade} = req.body;
    res.writeHead(302, {'Location': `/locations`})
 });
-
-
-
-
 
 app.listen(port, () => {
    console.log(`Server running at http://localhost:${port}`);
