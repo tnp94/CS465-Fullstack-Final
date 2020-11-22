@@ -51,7 +51,7 @@ app.post('/', async(req, res) => {
 
 app.get('/data', async (req, res) => {
    // TODO: get min and max grade from a form from the user as arguments
-   let data = await fetchData(("V3", "V3"));
+   let data = await fetchData("V3", "V3");
    res.json(data);
 });
 
