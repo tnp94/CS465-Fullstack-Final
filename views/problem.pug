@@ -1,8 +1,8 @@
 doctype html
 head
-  link(rel='stylesheet' href='../css/style.css')
-  link(rel='stylesheet' href='../css/nav-layout.css')
-  link(rel='stylesheet' href='../css/layout.css')
+  link(rel='stylesheet' href='css/style.css')
+  link(rel='stylesheet' href='css/nav-layout.css')
+  link(rel='stylesheet' href='css/layout.css')
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Document
@@ -11,11 +11,16 @@ nav
     li.nav-item.grid-item.item1
       a(href='/index.html') Home
     li.nav-item.grid-item.item2.current
-      a(href='/locations') Location List
+      a(href='/locations.html') Location List
     li.nav-item.grid-item.item3
       a(href='/map.html') Map View
 .grid.container
   .grid-item.header
-    h1 Location: !{location}, Problem: !{problem}
+    h1 Filtered problems by grade
+    <br/>
+    ul
+     each val in problemList
+       li= "(" + val.rating + ")" + " " +  val.name + " - " + val.location[3]
   .grid-item.main-content !{problemDetails}
   .grid-item.sidebar
+    

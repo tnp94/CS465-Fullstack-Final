@@ -16,6 +16,7 @@ app.use(express.static('public'));
 
 // Fetch variables
 const fetch = require('node-fetch');
+const { render } = require('pug');
 const key = "200976075-5e0eef9985cd16b8e7a3f68105cd6b29";
 const maxResults = 50;
 //const url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`; // TODO set API url here
@@ -30,8 +31,6 @@ async function fetchData(minGrade, maxGrade) {
 // Global variables
 var gradeSelection;
 
-
-
 app.get('/', (req, res) => {
 
 });
@@ -40,18 +39,23 @@ app.get('/', (req, res) => {
 app.post('/', async(req, res) => {
    gradeSelection = req.body.grade;
    console.log(gradeSelection);
-   let x = await fetchData(gradeSelection, gradeSelection);
-   for (var i = 0; i < x.routes.length; ++i)
+   let problems = await fetchData(gradeSelection, gradeSelection);
+   let name = [];
+   for (var i = 0; i < problems.routes.length; ++i)
    {
-      console.log(x.routes[i].name);
+      name[i] = problems.routes[i].name;
    }
-   res.writeHead(302, {'Location': `/`})
+   /*res.writeHead(302, {'Location': `/index.html`})
+   res.end();*/
+   res.render('problem', {
+          problemList: problems.routes
+   });
    res.end();
 });
 
 app.get('/data', async (req, res) => {
    // TODO: get min and max grade from a form from the user as arguments
-   let data = await fetchData("V3", "V3");
+   let data = await fetchData("V2", "V3");
    res.json(data);
 });
 
