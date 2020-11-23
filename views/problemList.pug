@@ -12,11 +12,16 @@ html(lang='en')
       li.nav-item.grid-item.item1
         a(href='/index.html') Home
       li.nav-item.grid-item.item2.current
-        a(href='/locations.html') Locations List
+        a(href='/locations.html') Location List
       li.nav-item.grid-item.item3
         a(href='/map.html') Map View
   .grid.container
-    .grid-item.main-content
-      ul.locations !{locationsList}
+    .grid-item.header
+      h1 Filtered problems by grade
+      <br/>
+      ul
+      each val in problemList
+        li= "(" + val.rating + ")" + " " +  val.name + " - " + val.location[3]
+    .grid-item.main-content !{problemDetails}
     .grid-item.sidebar
-      ul.routes
+      
