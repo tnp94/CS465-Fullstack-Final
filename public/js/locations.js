@@ -5,6 +5,9 @@ let fullData = {
    }
 };
 
+// Variable keeping track of which location is currently selected
+let activeLocation;
+
 fetch('/data')
 .then (response => {
    return response.json();
@@ -33,16 +36,24 @@ fetch('/data')
 
    function getLocationsList() {
       let output = Object.keys(fullData.locations).map((location, count) =>
-         <li id={location} key={location} onClick={() => updateSidebar(location) }><a href={location}>{location}</a>: {fullData.locations[location].count} routes found</li>
+         <li id={location} key={location} onMouseOver={() => updateSidebar(location) }><a href={location}>{location}</a>: {fullData.locations[location].count} routes found</li>
       );
 
       ReactDOM.render(output, locations);
    }
 
    function updateSidebar(location) {
+      // If there is a location active, de-activate it and remove the selected class
+      if (activeLocation != null)
+         activeLocation.setAttribute('class', '');
+      // Set the hovered location as the active and selected location
+      activeLocation = document.getElementById(`${location}`);
+      activeLocation.setAttribute('class', 'selected');
+
+      // Update the side bar to include the routes at the selected location
       let sidebar = document.querySelector('.sidebar .routes');
       let output = Object.keys(fullData.locations[location].routes).map((route) => {
-         let path = `${location}/${route}`;
+         let path = `${location}/${fullData.locations[location].routes[route].id}`;
          return <li id={route} key={route}><a href={path}>{route}</a></li>
       });
 
