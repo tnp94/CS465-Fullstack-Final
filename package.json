@@ -23,5 +23,8 @@
     "memory-cache": "^0.2.0",
     "node-fetch": "^2.6.1",
     "pug": "^3.0.0"
+  },
+  "engines": {
+    "node": "14.15.0"
   }
 }

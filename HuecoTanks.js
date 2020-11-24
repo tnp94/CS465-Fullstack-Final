@@ -6,7 +6,6 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 5000;
 }
-app.listen(port);
 
 // Serve index, locationList, and map(not yet implemented) as static pages
 app.use(express.static('public'));
