@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <link rel="stylesheet" href="css/style.css" />
-   <link rel="stylesheet" href="css/nav-layout.css" />
-   <link rel="stylesheet" href="css/layout.css" />
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-</head>
-<body>
-   <nav>
+  <head>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/nav-layout.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
       <ul class="grid nav-grid">
-         <li class="nav-item grid-item item1"><a href="index.html">Home</a></li>
-         <li class="nav-item grid-item item2 current"><a href="locations.html">Locations List</a></li>
-         <li class="nav-item grid-item item3"><a href="map.html">Map View</a></li>
+        <li class="nav-item grid-item item1"><a href="index.html">Home</a></li>
+        <li class="nav-item grid-item item2 current">
+          <a href="locations.html">Locations List</a>
+        </li>
+        <li class="nav-item grid-item item3">
+          <a href="map.html">Map View</a>
+        </li>
       </ul>
-   </nav>
-   <div class="grid container">
+    </nav>
+    <div class="grid container">
       <div class="grid-item main-content">
-         <ul class="locations">
-            Loading locations
-
-         </ul>
+        <ul class="locations">
+          Loading locations
+        </ul>
       </div>
       <div class="grid-item sidebar">
-         <ul class="routes">
-
-         </ul>
+        <ul class="routes"></ul>
       </div>
-   </div>
-   
-   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
-   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
-   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
-   <script type="text/babel" src="js/locations.js"></script>
- </body>
+    </div>
+
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel" src="js/locations.js"></script>
+  </body>
 </html>

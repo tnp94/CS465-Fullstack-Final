@@ -31,7 +31,6 @@ fetch('/data')
    }
    });
 
-
    function getLocationsList() {
       let output = Object.keys(fullData.locations).map((location, count) =>
          <li id={location} key={location} onClick={() => updateSidebar(location) }><a href={location}>{location}</a>: {fullData.locations[location].count} routes found</li>
@@ -39,7 +38,6 @@ fetch('/data')
 
       ReactDOM.render(output, locations);
    }
-
 
    function updateSidebar(location) {
       let sidebar = document.querySelector('.sidebar .routes');
