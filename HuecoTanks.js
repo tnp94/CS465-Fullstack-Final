@@ -125,7 +125,7 @@ app.get('/:location/:problem', async (req, res) => {
       else
       {
          // problem found, display detailed information
-         const {id, name, type, rating, stars, location, url, imgSmall} = route;
+         const {id, name, type, rating, stars, location, url, imgMedium} = route;
          res.render('problem', {
             location: `<a href='/${req.params.location}'>${req.params.location}</a>`,
             problem: name,
@@ -135,7 +135,7 @@ app.get('/:location/:problem', async (req, res) => {
             stars: stars,
             locationHierarchy: location,
             link: url,
-            imageUrl: imgSmall
+            imageUrl: imgMedium
             // Put other relevant information here
          });
       }
@@ -169,6 +169,6 @@ app.post('/submit', (req, res) => {
    res.writeHead(302, {'Location': `/locations`})
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
    console.log(`Server running at http://localhost:${port}`);
 });
