@@ -1,7 +1,12 @@
 // Using express framework
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5000;
+// const port = process.env.PORT || 5000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 5000;
+}
+app.listen(port);
 
 // Serve index, locationList, and map(not yet implemented) as static pages
 app.use(express.static('public'));
@@ -165,6 +170,6 @@ app.post('/submit', (req, res) => {
    res.writeHead(302, {'Location': `/locations`})
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
    console.log(`Server running at http://localhost:${port}`);
-})
+});
