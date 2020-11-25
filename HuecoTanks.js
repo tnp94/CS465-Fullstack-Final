@@ -1,7 +1,11 @@
 // Using express framework
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5000;
+// const port = process.env.PORT || 5000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 5000;
+}
 
 // Serve index, locationList, and map(not yet implemented) as static pages
 app.use(express.static('public'));
@@ -131,7 +135,7 @@ app.get('/:location/:problem', async (req, res) => {
       else
       {
          // problem found, display detailed information
-         const {id, name, type, rating, stars, location, url, imgSmall} = route;
+         const {id, name, type, rating, stars, location, url, imgMedium} = route;
          res.render('problem', {
             location: `<a href='/${req.params.location}'>${req.params.location}</a>`,
             problem: name,
@@ -141,7 +145,7 @@ app.get('/:location/:problem', async (req, res) => {
             stars: stars,
             locationHierarchy: location,
             link: url,
-            imageUrl: imgSmall
+            imageUrl: imgMedium
             // Put other relevant information here
          });
       }
@@ -177,4 +181,4 @@ app.post('/submit', (req, res) => {
 
 app.listen(port, () => {
    console.log(`Server running at http://localhost:${port}`);
-})
+});
