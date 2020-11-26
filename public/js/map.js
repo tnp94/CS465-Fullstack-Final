@@ -43,6 +43,7 @@ function addMarkers() {
          location: location
       });
 
+      // Add event listener to each marker that will update the sidebar
       google.maps.event.addListener(marker, 'click', () => {
          updateSidebar(marker.location);
       });
