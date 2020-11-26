@@ -19,16 +19,32 @@ let activeLocation;
 //       });
 // }
 
+function updateSidebar(location) {
+   // Update the side bar to include the routes at the selected location
+   let sidebar = document.querySelector('.sidebar .routes');
+   let output = Object.keys(fullData.locations[location].routes).map((route) => {
+      let path = `${location}/${fullData.locations[location].routes[route].id}`;
+      return <li id={route} key={route}><a href={path}>{route}</a></li>;
+   });
+
+   ReactDOM.render(output, sidebar);
+}
+
 function addMarkers() {
    // For each location in the data, place a marker labeled with the number of routes at the location.
    Object.keys(fullData.locations).map((location) => {
       // Use the lat and long of the first route at the location because each route will have the same lat and long
       let firstRoute = fullData.locations[location].routes[Object.keys(fullData.locations[location].routes)[0]];
       let coordinates = new google.maps.LatLng(firstRoute.latitude, firstRoute.longitude);
-      new google.maps.Marker({
+      let marker = new google.maps.Marker({
          position: coordinates,
          label: fullData.locations[location].count.toString(),
-         map: map
+         map: map,
+         location: location
+      });
+
+      google.maps.event.addListener(marker, 'click', () => {
+         updateSidebar(marker.location);
       });
    });
 }
@@ -61,27 +77,12 @@ fetch('/data')
    
    
 
-   function updateSidebar(location) {
-      // If there is a location active, de-activate it and remove the selected class
-      if (activeLocation != null)
-         activeLocation.setAttribute('class', '');
-      // Set the hovered location as the active and selected location
-      activeLocation = document.getElementById(`${location}`);
-      activeLocation.setAttribute('class', 'selected');
-
-      // Update the side bar to include the routes at the selected location
-      let sidebar = document.querySelector('.sidebar .routes');
-      let output = Object.keys(fullData.locations[location].routes).map((route) => {
-         let path = `${location}/${fullData.locations[location].routes[route].id}`;
-         return <li id={route} key={route}><a href={path}>{route}</a></li>;
-      });
-
-      ReactDOM.render(output, sidebar);
-   }
+   
 
    
 
    addMarkers();
+   
    
 })
 .catch(error => console.log(error))
