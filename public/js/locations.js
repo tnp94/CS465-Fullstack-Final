@@ -43,6 +43,10 @@ fetch('/data')
    }
 
    function updateSidebar(location) {
+   let title = document.getElementById("locationName");
+   let locationName = <h1>{location}</h1>;
+   ReactDOM.render(locationName, title);
+   
       // If there is a location active, de-activate it and remove the selected class
       if (activeLocation != null)
          activeLocation.setAttribute('class', '');
@@ -54,7 +58,7 @@ fetch('/data')
       let sidebar = document.querySelector('.sidebar .routes');
       let output = Object.keys(fullData.locations[location].routes).map((route) => {
          let path = `${location}/${fullData.locations[location].routes[route].id}`;
-         return <li id={route} key={route}><a href={path}>{route}</a></li>
+         return <li id={route} key={route}><a href={path}>{route} (difficulty: {fullData.locations[location].routes[route].rating})</a></li>
       });
 
       ReactDOM.render(output, sidebar);

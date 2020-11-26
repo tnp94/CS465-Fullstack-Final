@@ -20,11 +20,15 @@ let activeLocation;
 // }
 
 function updateSidebar(location) {
+   let title = document.getElementById("locationName");
+   let locationName = <h1>{location}</h1>;
+   ReactDOM.render(locationName, title);
+
    // Update the side bar to include the routes at the selected location
    let sidebar = document.querySelector('.sidebar .routes');
    let output = Object.keys(fullData.locations[location].routes).map((route) => {
       let path = `${location}/${fullData.locations[location].routes[route].id}`;
-      return <li id={route} key={route}><a href={path}>{route}</a></li>;
+      return <li id={route} key={route}><a href={path}>{route} (difficulty: {fullData.locations[location].routes[route].rating})</a></li>
    });
 
    ReactDOM.render(output, sidebar);
