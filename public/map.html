@@ -25,6 +25,26 @@
       </div>
    </div>
    
-   <script type='text/javascript' src='js/map.js'></script>
+   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+   <script async type='text/babel' src='js/map.js'></script>
+
+   <script>
+      // I was having trouble with the initMap function being inside map.js because the api call would (ONLY sometimes) not recognize that initMap was a function
+      let pos;
+      let map;
+      function initMap() {
+         // Set the default location and initialize all variables
+         pos = {lat: 31.923, lng: -106.045};
+         map = new google.maps.Map(document.getElementById('map'), {
+            center: pos,
+            zoom: 16,
+            mapTypeId: 'hybrid'
+         });
+      }
+   </script>
+   <!-- Call the google api -->
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJQNiWPB-euRTc6JcAi_w30NzCPI7VD7A&callback=initMap"></script>
 </body>
 </html>

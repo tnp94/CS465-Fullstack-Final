@@ -51,6 +51,10 @@ body {
    padding: 0px;
 }
 
+#map {
+   height: 80vh;
+}
+
 
 @media (min-width: 415px) {
    .main-content {
