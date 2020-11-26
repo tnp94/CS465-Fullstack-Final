@@ -1,7 +1,8 @@
 // Using express framework
 const express = require('express');
 const app = express();
-// const port = process.env.PORT || 5000;
+var url = require("url");
+//const port = process.env.PORT || 5000;
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 5000;
@@ -31,6 +32,8 @@ let routeCache = new cache.Cache();
 // Fetch variables
 const fetch = require('node-fetch');
 const { render } = require('pug');
+const { Router } = require('express');
+const { removeData } = require('jquery');
 const key = "200976075-5e0eef9985cd16b8e7a3f68105cd6b29";
 const maxResults = 50;
 //const url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`; // TODO set API url here
@@ -46,6 +49,16 @@ async function fetchData(minGrade, maxGrade) {
       data = await response.json();
       cache.put(cacheTarget, data, 600000);
    }
+   return data;
+}
+
+async function fetchData2(minGrade, maxGrade) {
+   let cacheTarget = 'full'; // Use a temporary cache target since this is limited functionality at the moment
+   let data = cache.get(cacheTarget); // Check if fullData is in the server-side cache
+   let url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`; // TODO set API url here
+   let response = await fetch(url);
+   data = await response.json();
+   cache.clear();
    return data;
 }
 
@@ -66,35 +79,14 @@ async function getRoute(routeID) {
 // Global variables
 var gradeSelection;
 
-/*app.get('/', (req, res) => {
-
-});*/
-
-
-app.post('/', async(req, res) => {
+app.post('/filteredRoutes/', async(req, res) => {
    gradeSelection = req.body.grade;
    console.log(gradeSelection);
-   let problems = await fetchData(gradeSelection, gradeSelection);
-   let name = [];
-   for (var i = 0; i < problems.routes.length; ++i)
-   {
-      name[i] = problems.routes[i].name;
-   }
-   res.render('problemList', {
-          problemList: problems.routes
+   let problems = await fetchData2(gradeSelection, gradeSelection);
+   //console.log(problems.routes);
+    res.render('problemList', {
+       problemList: problems.routes
    });
-   res.end();
-});
-
-app.get('/data/V0', async (req, res) => {
-   let gradeList = await fetchData("V0", "V0");
-   console.log(gradeList);
-   res.end();
-});
-
-app.get('/data/V1', async (req, res) => {
-   let gradeList = await fetchData("V100", "V100");
-   console.log(gradeList);
    res.end();
 });
 
@@ -103,6 +95,7 @@ app.get('/data', async (req, res) => {
    let data = await fetchData("V0", "V15");
    res.json(data);
 });
+
 
 // app.get('/:location?', (req, res) => {
 //    // Fetch the available problems at the route location and link to each problem
