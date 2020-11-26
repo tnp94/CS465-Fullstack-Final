@@ -44,7 +44,7 @@ async function fetchData(minGrade, maxGrade) {
       let url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`; // TODO set API url here
       let response = await fetch(url);
       data = await response.json();
-      cache.put(cacheTarget, data, 600000)
+      cache.put(cacheTarget, data, 600000);
    }
    return data;
 }
@@ -66,9 +66,9 @@ async function getRoute(routeID) {
 // Global variables
 var gradeSelection;
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
 
-});
+});*/
 
 
 app.post('/', async(req, res) => {
@@ -80,11 +80,21 @@ app.post('/', async(req, res) => {
    {
       name[i] = problems.routes[i].name;
    }
-   /*res.writeHead(302, {'Location': `/index.html`})
-   res.end();*/
    res.render('problemList', {
           problemList: problems.routes
    });
+   res.end();
+});
+
+app.get('/data/V0', async (req, res) => {
+   let gradeList = await fetchData("V0", "V0");
+   console.log(gradeList);
+   res.end();
+});
+
+app.get('/data/V1', async (req, res) => {
+   let gradeList = await fetchData("V100", "V100");
+   console.log(gradeList);
    res.end();
 });
 
