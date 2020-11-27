@@ -1,8 +1,71 @@
 /* This is the CSS for the colors, text attributes,
    and other styles across the site */
 body {
-   background-color: #F1BF98;
+   background-color: #275942;
+   margin: 0;
 }
+
 .locations .selected {
-   background-color: rgba(255, 255, 255, 0.15);
+   background-color: #bf610f;
+   box-shadow: #222 2px 2px inset;
+}
+
+.full-content {
+   background-color: #d9d4bf;
+}
+
+.container {
+   background-color: #d9d4bf;
+   padding: 0;
+}
+
+body h1 {
+   background-color: #d9d4bf;
+   padding: 0;
+}
+
+.main-content {
+   display: flex;
+   flex-direction: row;
+   flex-flow: column wrap;
+   justify-content: left;
+}
+.container ul {
+   padding: 0;
+}
+.container ul li p{
+   margin: 0;
+}
+
+.container ul li {
+   list-style-type: none;
+   margin-bottom: 10px;
+   margin-right: 5px;
+   display: inline-block;
+   /* width: 50%; */
+   color: black;
+   background-color: #839d84;
+   border: 1px black solid;
+   border-radius: 6px;
+   padding: 3px;
+   box-shadow: #222 2px 2px;
+}
+
+.container ul li:active {
+   box-shadow: #222 2px 2px inset;
+}
+.locationLI {
+   color: black;
+   text-decoration: none;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+ul li a {
+   text-decoration: none;
+   color: #222;
+}
+
+#sidebar a {
+   display: block;
 }
