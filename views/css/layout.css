@@ -1,0 +1,90 @@
+/* CSS for the layout of content */
+* {
+   box-sizing: border-box;
+}
+
+body {
+   background-color: #F1BF98;
+}
+
+.grid {
+   display: grid;
+   gap: 5px;
+}
+
+/* This sets up the grid with 12 columns.
+   This makes dividing the page into halves, thirds,
+   or quarters easy */
+.container {
+   grid-template-columns: repeat(12, 1fr);
+   /* grid-template-rows: 1fr 9fr; */
+   /* min-height: 80vh; */
+}
+
+/* This is the layout for a one column page */
+.full-content {
+   grid-column: 1 / 13;
+   border: 1px solid black;
+   padding: 5px;
+}
+
+.header {
+   grid-column: 1 / 13;
+   border: 1px solid black;
+   padding: 5px;
+}
+
+.header h1 {
+   margin: 0px;
+}
+
+.main-content ul li {
+   margin: 5px auto;
+   border: 1px solid black;
+   padding: 3px;
+   list-style-type: none;
+   font-size: 2em;
+}
+
+.main-content ul {
+   margin: 0px;
+   padding: 0px;
+}
+
+#map {
+   height: 80vh;
+}
+
+
+@media (min-width: 415px) {
+   .main-content {
+      grid-column: 1 / 9;
+      border: 1px solid black;
+      padding: 5px;
+   }
+
+   .sidebar{
+      grid-column: 9 / 13;
+      border: 1px solid black;
+      padding: 5px;
+   }
+
+}
+
+@media (max-width: 414px) {
+   .main-content {
+      grid-column: 1 / 13;
+      border: 1px solid black;
+      padding: 5px;
+   }
+
+   .sidebar{
+      grid-column: 1 / 13;
+      border: 1px solid black;
+      padding: 5px;
+   }
+
+   #map {
+      height: 50vh;
+   }
+}
