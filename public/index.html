@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
+  <body class="hero-image">
     <nav>
       <ul class="grid nav-grid">
         <li class="nav-item grid-item item1 current">
@@ -24,19 +24,20 @@
     </nav>
     <div class="grid container">
       <div class="grid-item full-content">
-        <h1>Welcome to the Hueco Tanks web app</h1>
-        <p>
+        <h1>Hueco Tanks</h1>
+        <p id="north-mtn">North Mountain</p>
+        <p class="description">
           This website has information on various bouldering problems in the
           Hueco Tanks, North Mountain area
         </p>
 
-        <p>View boulder routes by V-grade:</p>
+        <p id="grade-text">Select a V-grade to view</p>
         <form
           id="grade-select"
           method="POST"
           action="http://localhost:5000/filteredRoutes"
         >
-          <label for="grade">V-grade:</label>
+          <label id="grade-text" for="grade">V-grade:</label>
           <select name="grade" id="grade">
             <option value="V0">V0</option>
             <option value="V1">V1</option>
@@ -52,10 +53,10 @@
             <option value="V11">V11</option>
             <option value="V12">V12</option>
           </select>
-          <br /><br />
-          <input type="submit" value="Submit" />
+          <input type="submit" class="submit" value="Submit" />
         </form>
       </div>
+    </div>
     </div>
   </body>
 </html>

@@ -1,71 +1,119 @@
 /* This is the CSS for the colors, text attributes,
    and other styles across the site */
 body {
-   background-color: #275942;
-   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #275942;
+  margin: 0;
+  background-image: url("css_images/homepage.jpg");
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .locations .selected {
-   background-color: #bf610f;
-   box-shadow: #222 2px 2px inset;
+  background-color: #bf610f;
+  box-shadow: #222 2px 2px inset;
 }
 
 .full-content {
-   background-color: #d9d4bf;
+  background-color: #000000;
+  opacity: 0.9;
 }
 
 .container {
-   background-color: #d9d4bf;
-   padding: 0;
+  color: white;
+  background-color: #000000;
+  padding: 0;
+  opacity: 0.9;
 }
 
 body h1 {
-   background-color: #d9d4bf;
-   padding: 0;
+  background-color: #000000;
+  padding: 0;
+  opacity: 0.9;
+  text-align: center;
+  font-size: 60px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .main-content {
-   display: flex;
-   flex-direction: row;
-   flex-flow: column wrap;
-   justify-content: left;
+  display: flex;
+  flex-direction: row;
+  flex-flow: column wrap;
+  justify-content: left;
 }
 .container ul {
-   padding: 0;
+  padding: 0;
 }
-.container ul li p{
-   margin: 0;
+.container ul li p {
+  margin: 0;
 }
 
 .container ul li {
-   list-style-type: none;
-   margin-bottom: 10px;
-   margin-right: 5px;
-   display: inline-block;
-   /* width: 50%; */
-   color: black;
-   background-color: #839d84;
-   border: 1px black solid;
-   border-radius: 6px;
-   padding: 3px;
-   box-shadow: #222 2px 2px;
+  list-style-type: none;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  display: inline-block;
+  /* width: 50%; */
+  color: black;
+  background-color: #839d84;
+  border: 1px black solid;
+  border-radius: 6px;
+  padding: 3px;
+  box-shadow: #222 2px 2px;
 }
 
 .container ul li:active {
-   box-shadow: #222 2px 2px inset;
+  box-shadow: #222 2px 2px inset;
 }
 .locationLI {
-   color: black;
-   text-decoration: none;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  text-decoration: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
 ul li a {
-   text-decoration: none;
-   color: #222;
+  text-decoration: none;
+  color: #222;
 }
 
 #sidebar a {
-   display: block;
+  display: block;
+}
+
+.submit {
+  color: rgb(0, 0, 0);
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #11a65b;
+  border: 100px black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.submit:hover {
+  opacity: 10;
+  background-color: #14cc70;
+  border: 2px black;
+  flex-grow: 10px;
+}
+
+.description {
+  font-size: 20px;
+}
+
+#grade-text {
+  margin-top: 5px;
+  font-size: 22px;
+}
+
+#north-mtn {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

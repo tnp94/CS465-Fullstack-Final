@@ -52,13 +52,15 @@ async function fetchData(minGrade, maxGrade) {
    return data;
 }
 
+// For fetching particular grades and caching those grades.
 async function fetchData2(minGrade, maxGrade) {
-   let cacheTarget = 'full'; // Use a temporary cache target since this is limited functionality at the moment
-   let data = cache.get(cacheTarget); // Check if fullData is in the server-side cache
+   let cacheTarget = 'full';
+   let data = cache.get(cacheTarget);
    let url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`; // TODO set API url here
    let response = await fetch(url);
    data = await response.json();
    cache.clear();
+   cache.put(cacheTarget, data, 600000);
    return data;
 }
 
@@ -90,10 +92,18 @@ app.post('/filteredRoutes/', async(req, res) => {
    res.end();
 });
 
+app.get('/', async (req, res) => {
+   // Get all data from the API
+   res.write('Hello');
+   res.json(data);
+res.end();
+});
+
 app.get('/data', async (req, res) => {
    // Get all data from the API
    let data = await fetchData("V0", "V15");
    res.json(data);
+   res.end();
 });
 
 
