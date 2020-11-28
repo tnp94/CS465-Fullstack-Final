@@ -22,7 +22,8 @@ function getLocationsList() {
 
 function updateSidebar(location) {
    let title = document.getElementById("locationName");
-   let locationName = <h1><a href={location}>{location}</a></h1>;
+   // let locationName = <h1><a href={location}>{location}</a></h1>;
+   let locationName = <h2>{location}</h2>;
    ReactDOM.render(locationName, title);
    
       // If there is a location active, de-activate it and remove the selected class
