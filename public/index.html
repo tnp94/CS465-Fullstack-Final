@@ -26,37 +26,39 @@
       <div class="grid-item full-content">
         <h1>Hueco Tanks</h1>
         <p id="north-mtn">North Mountain</p>
-        <p class="description">
+        <!--< class="description">
           This website has information on various bouldering problems in the
           Hueco Tanks, North Mountain area
-        </p>
-
-        <p id="grade-text">Select a V-grade to view</p>
+        </p>-->
+        <div class="description"></div>
+      </br></br>
         <form
           id="grade-select"
+          class="grade-select"
           method="POST"
           action="http://localhost:5000/filteredRoutes"
         >
-          <label id="grade-text" for="grade">V-grade:</label>
-          <select name="grade" id="grade">
-            <option value="V0">V0</option>
-            <option value="V1">V1</option>
-            <option value="V2">V2</option>
-            <option value="V3">V3</option>
-            <option value="V4">V4</option>
-            <option value="V5">V5</option>
-            <option value="V6">V6</option>
-            <option value="V7">V7</option>
-            <option value="V8">V8</option>
-            <option value="V9">V9</option>
-            <option value="V10">V10</option>
-            <option value="V11">V11</option>
-            <option value="V12">V12</option>
-          </select>
-          <input type="submit" class="submit" value="Submit" />
+          <label id="grade-text" for="grade">View boulder problems by V-grade</label>
+          <div class="select">
+            <select name="grade" id="grade-selection">
+              <option value="V0">V0</option>
+              <option value="V1">V1</option>
+              <option value="V2">V2</option>
+              <option value="V3">V3</option>
+              <option value="V4">V4</option>
+              <option value="V5">V5</option>
+              <option value="V6">V6</option>
+              <option value="V7">V7</option>
+              <option value="V8">V8</option>
+              <option value="V9">V9</option>
+              <option value="V10">V10</option>
+              <option value="V11">V11</option>
+              <option value="V12">V12</option>
+            </select>
+          </div>
+          <input name="submit" type="submit" class="submit" value="Submit" />
         </form>
       </div>
-    </div>
     </div>
   </body>
 </html>

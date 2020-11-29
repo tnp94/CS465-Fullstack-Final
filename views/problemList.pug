@@ -17,11 +17,14 @@ html(lang='en')
         a(href='/map.html') Map View
   .grid.container
     .grid-item.header
-      h1 Filtered problems by grade
+      h1 Filtered by: !{problemList[0].rating}
       <br/>
       ul
-      each val in problemList
-        li= "(" + val.rating + ")" + " " +  val.name + " - " + val.location[3]
+        each val in problemList
+          div
+            a(class='probLink' href=`/problem/${val.id}`)=`${val.rating} ${val.name}`
+              //li=val.name
+              //li= "(" + val.rating + ")" + " " +  val.name + " - " + val.location[3]=name
     .grid-item.main-content !{problemDetails}
     .grid-item.sidebar
       

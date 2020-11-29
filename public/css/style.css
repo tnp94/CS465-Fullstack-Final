@@ -36,7 +36,7 @@ body h1 {
   text-align: center;
   font-size: 60px;
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 
 .main-content {
@@ -85,9 +85,14 @@ ul li a {
 }
 
 .submit {
+  display: grid;
+  justify-self: center;
   color: rgb(0, 0, 0);
   margin-left: 10px;
-  font-size: 18px;
+  margin-top: 10px;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
   font-weight: bold;
   background-color: #11a65b;
   border: 100px black;
@@ -106,14 +111,113 @@ ul li a {
   font-size: 20px;
 }
 
-#grade-text {
-  margin-top: 5px;
-  font-size: 22px;
-}
-
 #north-mtn {
   font-size: 18px;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 0px;
   margin-bottom: 5px;
+}
+
+#grade-text {
+  display: grid;
+  margin-bottom: 5px;
+  font-size: 24px;
+  justify-self: center;
+}
+
+#grade {
+  width: 50px;
+  height: 30px;
+}
+
+#grade-select {
+  display: grid;
+}
+
+#grade-selection {
+  display: grid;
+  height: auto;
+  width: auto;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select,
+.select:after {
+  grid-area: select;
+}
+
+.select {
+  display: grid;
+  justify-self: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 150px;
+  height: 35px;
+  min-width: auto;
+  max-width: 10ch;
+  border: 1px solid rgb(10, 214, 54);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+.select:after {
+  justify-self: end;
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: rgb(32, 32, 32);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+select:hover {
+  font-weight: bold;
+}
+
+div.info {
+  color: whitesmoke;
+  font-size: 24px;
+}
+
+.probLink {
+  font-size: 18px;
+}
+
+.probLink:link {
+  color: white;
+}
+
+.probLink:visited {
+  color: silver;
+}
+
+.probLink:hover {
+  background-color: rgb(84, 219, 84);
+  color: black;
+}
+
+.probLink:active {
+  background-color: salmon;
+  color: black;
 }

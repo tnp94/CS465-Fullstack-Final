@@ -17,16 +17,17 @@ html(lang='en')
         a(href='/map.html') Map View
   .grid.container
     .grid-item.header
-      h1 Location: !{location}, Problem: !{problem}
-    .grid-item.main-content !{problemDetails}
-      h2 !{problem}
-      p Route id: !{routeID}
-      p Route type: !{type}
-      p Difficulty rating: !{difficulty}
-      p Star Rating: !{stars} stars
-      p Location hierarchy: !{locationHierarchy}
-      p Mountain project page link: 
-        a(href=link) !{problem}
+      h1 !{problem}
+    .grid-item.main-content <!--{problemDetails}-->
+      //h2 !{problem}
+      div.info
+        p Route id: !{routeID}
+        p Route type: !{type}
+        p Difficulty rating: !{difficulty}
+        p Star Rating: !{stars} stars
+        p Location: !{subArea}
+        p Mountain project page link: 
+          a(href="!{urlMP}") mountainproject.com
     .grid-item.sidebar
-      img.problem-image(src=imageUrl width='100%' alt=`Picture of the ${problem} bouldering problem`)
+      img.problem-image(src=`${image}` width='100%' alt=`Picture of the ${problem} bouldering problem`)
       
