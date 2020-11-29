@@ -9,7 +9,7 @@ function getLocationsList() {
    let output = Object.keys(fullData.locations).map((location, count) => {
       // If on mobile, clicking a location (not the button) should bring you to the sidebar
       if(window.innerWidth < 415) {
-         return <li className='location' id={location} key={location} onClick={() => {updateSidebar(location); window.location.href='#sidebar' }}>: {fullData.locations[location].count} routes</li>
+         return <li className='location' id={location} key={location} onClick={() => {updateSidebar(location); window.location.href='#sidebar' }}>{location}: {fullData.locations[location].count} routes</li>
       }
       else
       {
