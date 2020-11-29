@@ -39,6 +39,7 @@ const key = "200976075-5e0eef9985cd16b8e7a3f68105cd6b29";
 const maxResults = 50;
 //const url = `https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=31.93&lon=-106.05&maxDistance=1&minDiff=${minGrade}&maxDiff=${maxGrade}&maxResults=${maxResults}&key=${key}`; // TODO set API url here
 
+// Function to fetch the data from the api, this is used on the back end to keep api-key private and it's reusable
 async function fetchData(minGrade, maxGrade) {
    let cacheTarget = 'full'; // Use a temporary cache target since this is limited functionality at the moment
    let data = cache.get(cacheTarget); // Check if fullData is in the server-side cache
@@ -94,6 +95,7 @@ app.post('/filteredRoutes/', async(req, res) => {
    res.end();
 });
 
+<<<<<<< HEAD
 app.get('/problem/:id', async (req, res) => {
    //console.log(req.params.id);
    var route_id = req.params.id;
@@ -125,10 +127,14 @@ app.get('/problem/:id', async (req, res) => {
    res.end();
 });
 
+=======
+// ROUTE FOR HOME PAGE
+>>>>>>> 03dd86214c293187e59d289e25b88fbbb9a992e6
 app.get('/', async (req, res) => {
    res.end();
 });
 
+// ROUTE TO GET ALL OF THE DATA
 app.get('/data', async (req, res) => {
    // Get all data from the API
    let data = await fetchData("V0", "V15");
@@ -136,6 +142,7 @@ app.get('/data', async (req, res) => {
    res.end();
 });
 
+<<<<<<< HEAD
 
 
 
@@ -148,6 +155,9 @@ app.get('/data', async (req, res) => {
 //    });
 // });
 
+=======
+// ROUTE FOR EACH INDIVIDUAL PROBLEM
+>>>>>>> 03dd86214c293187e59d289e25b88fbbb9a992e6
 app.get('/:location/:problem', async (req, res) => {
    // Fetch all information for the problem and display the information with the route pug template
    if (isNaN(parseInt(req.params.problem))) // Catches pathways that are not routeID's
@@ -163,7 +173,7 @@ app.get('/:location/:problem', async (req, res) => {
       {
          // problem was not a valid RouteID. API returned nothing
          res.render('problem', {
-            location: `<a href='/${req.params.location}'>${req.params.location}</a>`,
+            location: `${req.params.location}`,
             problem: `NOT FOUND`
          });
       }
@@ -172,7 +182,7 @@ app.get('/:location/:problem', async (req, res) => {
          // problem found, display detailed information
          const {id, name, type, rating, stars, location, url, imgMedium} = route;
          res.render('problem', {
-            location: `<a href='/${req.params.location}'>${req.params.location}</a>`,
+            location: `${req.params.location}`,
             problem: name,
             routeID: id,
             type: type,
@@ -188,8 +198,12 @@ app.get('/:location/:problem', async (req, res) => {
 
 });
 
+<<<<<<< HEAD
 
 
+=======
+// ---------- I THINK THIS IS NOT USED BUT I AM AFRAID TO DELETE IT SO CLOSE TO SUBMISSION ----------
+>>>>>>> 03dd86214c293187e59d289e25b88fbbb9a992e6
 app.get('/:location?', async (req, res) => {
    // Fetch all information for the problem and display the information with the route pug template
    {
@@ -210,6 +224,7 @@ app.get('/:location?', async (req, res) => {
       }
    }
 });
+// ----------------------------------- End of unused -------------------------------------------------
 
 app.post('/submit', (req, res) => {
    const {grade} = req.body;

@@ -9,7 +9,7 @@ function getLocationsList() {
    let output = Object.keys(fullData.locations).map((location, count) => {
       // If on mobile, clicking a location (not the button) should bring you to the sidebar
       if(window.innerWidth < 415) {
-         return <li className='location' id={location} key={location} onClick={() => {updateSidebar(location); window.location.href='#sidebar' }}><a href={location}>{location}</a>: {fullData.locations[location].count} routes</li>
+         return <li className='location' id={location} key={location} onClick={() => {updateSidebar(location); window.location.href='#sidebar' }}>{location}: {fullData.locations[location].count} routes</li>
       }
       else
       {
@@ -22,7 +22,8 @@ function getLocationsList() {
 
 function updateSidebar(location) {
    let title = document.getElementById("locationName");
-   let locationName = <h1><a href={location}>{location}</a></h1>;
+   // let locationName = <h1><a href={location}>{location}</a></h1>;
+   let locationName = <h2>{location}</h2>;
    ReactDOM.render(locationName, title);
    
       // If there is a location active, de-activate it and remove the selected class
