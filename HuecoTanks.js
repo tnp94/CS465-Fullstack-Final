@@ -95,7 +95,6 @@ app.post('/filteredRoutes/', async(req, res) => {
    res.end();
 });
 
-<<<<<<< HEAD
 app.get('/problem/:id', async (req, res) => {
    //console.log(req.params.id);
    var route_id = req.params.id;
@@ -127,9 +126,6 @@ app.get('/problem/:id', async (req, res) => {
    res.end();
 });
 
-=======
-// ROUTE FOR HOME PAGE
->>>>>>> 03dd86214c293187e59d289e25b88fbbb9a992e6
 app.get('/', async (req, res) => {
    res.end();
 });
@@ -142,22 +138,7 @@ app.get('/data', async (req, res) => {
    res.end();
 });
 
-<<<<<<< HEAD
-
-
-
-// app.get('/:location?', (req, res) => {
-//    // Fetch the available problems at the route location and link to each problem
-//    let problems = []; // Each problem should link to the problem page
-//    res.render('location', {
-//       location: `${req.params.location}`,
-//       problemList: problems
-//    });
-// });
-
-=======
 // ROUTE FOR EACH INDIVIDUAL PROBLEM
->>>>>>> 03dd86214c293187e59d289e25b88fbbb9a992e6
 app.get('/:location/:problem', async (req, res) => {
    // Fetch all information for the problem and display the information with the route pug template
    if (isNaN(parseInt(req.params.problem))) // Catches pathways that are not routeID's
@@ -198,12 +179,7 @@ app.get('/:location/:problem', async (req, res) => {
 
 });
 
-<<<<<<< HEAD
-
-
-=======
 // ---------- I THINK THIS IS NOT USED BUT I AM AFRAID TO DELETE IT SO CLOSE TO SUBMISSION ----------
->>>>>>> 03dd86214c293187e59d289e25b88fbbb9a992e6
 app.get('/:location?', async (req, res) => {
    // Fetch all information for the problem and display the information with the route pug template
    {

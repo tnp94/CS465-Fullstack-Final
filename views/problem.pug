@@ -17,7 +17,6 @@ html(lang='en')
         a(href='/map.html') Map View
   .grid.container
     .grid-item.header
-<<<<<<< HEAD
       h1 !{problem}
     .grid-item.main-content <!--{problemDetails}-->
       //h2 !{problem}
@@ -29,18 +28,6 @@ html(lang='en')
         p Location: !{subArea}
         p Mountain project page link: 
           a(href="!{urlMP}") mountainproject.com
-=======
-      h1 Location: !{location}, Problem: !{problem}
-    .grid-item.main-content !{problemDetails}
-      h2 !{problem}
-      p Route id: !{routeID}
-      p Route type: !{type}
-      p Difficulty rating: !{difficulty}
-      p Star Rating: !{stars} stars
-      p Location hierarchy: !{locationHierarchy}
-      p Mountain project page link: 
-        a.light-link(href=link) !{problem}
->>>>>>> 03dd86214c293187e59d289e25b88fbbb9a992e6
     .grid-item.sidebar
       img.problem-image(src=`${image}` width='100%' alt=`Picture of the ${problem} bouldering problem`)
       
