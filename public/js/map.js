@@ -7,17 +7,6 @@ let fullData = {
 // Variable keeping track of which location is currently selected
 let activeLocation;
 
-// let pos;
-// let map;
-// function initMap() {
-//       // Set the default location and initialize all variables
-//       pos = {lat: 31.923, lng: -106.045};
-//       map = new google.maps.Map(document.getElementById('map'), {
-//          center: pos,
-//          zoom: 16,
-//          mapTypeId: 'hybrid'
-//       });
-// }
 
 function updateSidebar(location) {
    let title = document.getElementById("locationName");
