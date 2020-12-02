@@ -41,12 +41,8 @@ body h1 {
   text-align: center;
   /* font-size: 1em; */
   margin-top: 10px;
-<<<<<<< HEAD
-  margin-bottom: 0px;
-=======
   margin-bottom: 5px;
   color: #eee;
->>>>>>> 03dd86214c293187e59d289e25b88fbbb9a992e6
 }
 
 .main-content {

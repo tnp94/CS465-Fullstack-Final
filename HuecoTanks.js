@@ -117,7 +117,7 @@ app.get('/problem/:id', async (req, res) => {
          stars: problems.routes[index].stars,
          subArea: problems.routes[index].location[3],
          urlMP: problems.routes.url,
-         image: img_url
+         imageUrl: img_url
       });
    }
    else {
