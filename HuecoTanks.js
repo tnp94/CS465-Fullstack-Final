@@ -169,7 +169,7 @@ app.get('/:location/:problem', async (req, res) => {
             type: type,
             difficulty: rating,
             stars: stars,
-            locationHierarchy: location,
+            subArea: location,
             link: url,
             imageUrl: imgMedium
             // Put other relevant information here
