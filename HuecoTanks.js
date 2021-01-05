@@ -95,36 +95,7 @@ app.post('/filteredRoutes/', async(req, res) => {
    res.end();
 });
 
-app.get('/problem/:id', async (req, res) => {
-   //console.log(req.params.id);
-   var route_id = req.params.id;
-   var found = false;
-   var index;
-   for (index = 0; index < problems.routes.length && found == false; ++index) {
-      if (route_id == problems.routes[index].id) {
-         found = true;
-      }
-   }
-   if (found) {
-      --index;
-      var img_url = `/images/${problems.routes[index].id}.jpg`;
-      console.log(img_url);
-      res.render('problem', {
-         routeID: problems.routes[index].id,
-         problem: problems.routes[index].name,
-         type: problems.routes[index].type,
-         difficulty: problems.routes[index].rating,
-         stars: problems.routes[index].stars,
-         subArea: problems.routes[index].location[3],
-         urlMP: problems.routes.url,
-         imageUrl: img_url
-      });
-   }
-   else {
-      res.redirect('/');
-   }
-   res.end();
-});
+
 
 app.get('/', async (req, res) => {
    res.end();
