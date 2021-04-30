@@ -27,7 +27,10 @@ html(lang='en')
         p Star Rating: !{stars} stars
         p Location: !{subArea}
         p Mountain project page link: 
-          a.light-link(href="!{urlMP}") mountainproject.com
+          a.light-link(href=`${url}`) mountainproject.com
     .grid-item.sidebar
-      img.problem-image(src=`${imageUrl}` width='100%' alt=`Picture of the ${problem} bouldering problem`)
+      if imageUrl !== ''
+        img.problem-image(src=`${imageUrl}` width='100%' alt=`Picture of the ${problem} bouldering problem`)
+      else 
+        p No Image Found
       
