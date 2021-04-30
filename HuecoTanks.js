@@ -133,7 +133,6 @@ app.get('/:location/:problem', async (req, res) => {
       {
          // problem found, display detailed information
          const {id, name, type, rating, stars, location, url, imgMedium} = route;
-         console.log(url)
          res.render('problem', {
             location: `${req.params.location}`,
             problem: name,
